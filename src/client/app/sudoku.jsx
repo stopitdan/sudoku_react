@@ -55,8 +55,8 @@ class Sudoku extends React.Component {
 
   randomStartingPosition() {
       let array = [];
-      let index = Math.floor(Math.Random() * 3)
-      let position = Math.floor(Math.Random() * 3)
+      let index = Math.floor(Math.random() * 3)
+      let position = Math.floor(Math.random() * 3)
 
       array.push(index, position);
       return array;
