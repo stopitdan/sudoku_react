@@ -12,6 +12,8 @@ class Sudoku extends React.Component {
         ]
     };
     this.generateBoard = this.generateBoard.bind(this);
+    this.placeBoard = this.placeBoard.bind(this);
+    this.randomStartingPosition = this.randomStartingPosition.bind(this);
   }
 
   generateBoard(){
@@ -19,7 +21,7 @@ class Sudoku extends React.Component {
       let startingValues = [1,2,3];
       let startingLength = startingValues.length
       for(var i = 0; i < startingLength; i++){
-          let randomStart = randomStartingPosition();
+          let randomStart = this.randomStartingPosition();
           let boardVal = board[randomStart[0]][randomStart[1]].value
           if(!boardVal){
               board[randomStart[0]][randomStart[1]].value = startingValues[i];
@@ -53,8 +55,8 @@ class Sudoku extends React.Component {
 
   randomStartingPosition() {
       let array = [];
-      let index = Math.floor(Math.Random() * 3 + 1)
-      let position = Math.floor(Math.Random() * 3 + 1)
+      let index = Math.floor(Math.Random() * 3)
+      let position = Math.floor(Math.Random() * 3)
 
       array.push(index, position);
       return array;
@@ -64,6 +66,9 @@ class Sudoku extends React.Component {
     return (
       <div>
         This is Sudoku!
+        <div style={{width:'306px', height:'306px'}}>
+        {this.placeBoard()}
+        </div>
         <button onClick={()=>{
             this.generateBoard();
         }}>
