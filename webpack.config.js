@@ -13,7 +13,7 @@ var config = {
   module : {
     loaders : [
       {
-        test : /\.jsx?/,
+        test : /\.(js?x)?/,
         include : APP_DIR,
         loader : 'babel-loader'
       }
